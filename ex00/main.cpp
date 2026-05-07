@@ -6,11 +6,11 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/07 19:33:44 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/08 01:24:20 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "func.hpp"
+#include "Zombie.hpp"
 
 int main(void){
 	std::cout << "----- New zombie Taro awaked in heap memory! -----" << std::endl;

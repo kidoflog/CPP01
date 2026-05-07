@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 18:56:14 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/07 18:57:20 by kkido            ###   ########.fr       */
+/*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
+/*   Updated: 2026/05/08 02:13:41 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *new_Zombie(std::string name);
-void randomChump(std::string name);
+int main(void){
+	Zombie *horde;
+	int num_of_zombies = 5;
+
+	std::cout << "----- New zombie horde Saburo awaked! -----" << std::endl;
+	horde = zombieHorde(num_of_zombies, "Saburo");
+	for(int i = 0; i < num_of_zombies; i++){
+		std::cout << i << ". Zombie announce()" << std::endl;
+		horde[i].announce();
+	}
+	std::cout << "----- Someone deleted Saburo! -----" << std::endl;
+	delete[] horde;
+}

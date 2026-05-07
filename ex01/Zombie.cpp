@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 23:11:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 01:58:21 by kkido            ###   ########.fr       */
+/*   Created: 2026/05/05 23:22:32 by kkido             #+#    #+#             */
+/*   Updated: 2026/05/08 01:57:53 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <string>
-#include <iostream>
+#include "Zombie.hpp"
 
-class Zombie
-{
-	public:
-		void announce();
-		Zombie(const std::string &new_name);
-		~Zombie();
-	private:
-		std::string _name;
-};
+Zombie::Zombie() : _name("Anonymous"){
+}
 
-Zombie *new_Zombie(const std::string name);
-void randomChump(const std::string name);
+Zombie::Zombie(const std::string &new_name) : _name(new_name){
+}
 
-#endif
+Zombie::~Zombie(){
+	std::cout << _name << " is destroyed..." << std::endl;
+}
+
+void Zombie::announce(){
+	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::set_name(const std::string name){
+	_name = name;
+}

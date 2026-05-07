@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 23:11:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 01:58:21 by kkido            ###   ########.fr       */
+/*   Created: 2026/05/05 23:29:51 by kkido             #+#    #+#             */
+/*   Updated: 2026/05/08 01:57:44 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <string>
-#include <iostream>
+#include "Zombie.hpp"
 
-class Zombie
-{
-	public:
-		void announce();
-		Zombie(const std::string &new_name);
-		~Zombie();
-	private:
-		std::string _name;
-};
-
-Zombie *new_Zombie(const std::string name);
-void randomChump(const std::string name);
-
-#endif
+Zombie *new_Zombie(const std::string name){
+	Zombie *new_zombie;
+	if(name.empty())
+		new_zombie = new Zombie("Anonymous");
+	else
+		new_zombie = new Zombie(name);
+	return new_zombie;
+}
