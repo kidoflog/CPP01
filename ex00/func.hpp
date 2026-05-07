@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   func.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/07 19:33:44 by kkido            ###   ########.fr       */
+/*   Created: 2026/05/07 18:56:14 by kkido             #+#    #+#             */
+/*   Updated: 2026/05/07 18:57:20 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "func.hpp"
+#include "Zombie.hpp"
 
-int main(void){
-	std::cout << "----- New zombie Taro awaked in heap memory! -----" << std::endl;
-	Zombie *taro = new_Zombie("Taro");
-	taro->announce();
-	std::cout << "----- New zombie Jiro awaked in stack memory! -----" << std::endl;
-	randomChump("Jiro");
-	std::cout << "----- Someone deleted Taro! -----" << std::endl;
-	delete taro;
-}
+Zombie *new_Zombie(std::string name);
+void randomChump(std::string name);

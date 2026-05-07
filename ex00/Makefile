@@ -6,13 +6,13 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/12 16:22:21 by kkido             #+#    #+#              #
-#    Updated: 2026/05/05 21:44:01 by kkido            ###   ########.fr        #
+#    Updated: 2026/05/07 19:34:55 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = ex00
 
-SRCS = Contact.cpp PhoneBook.cpp main.cpp my_get_line.cpp
+SRCS = main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:22:32 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/05 23:30:19 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/07 19:31:19 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Zombie::Zombie(const std::string &new_name) : _name(new_name){
 }
 
 Zombie::~Zombie(){
-	std::cout << _name << "is destroyed..." << std::endl;
+	std::cout << _name << " is destroyed..." << std::endl;
 }
 
 void Zombie::announce(){
