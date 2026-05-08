@@ -6,13 +6,14 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:22:32 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/07 19:31:19 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/08 11:58:19 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(const std::string &new_name) : _name(new_name){
+Zombie::Zombie(const std::string new_name){
+	_name = new_name.empty() ? "Anonymous" : new_name;
 }
 
 Zombie::~Zombie(){

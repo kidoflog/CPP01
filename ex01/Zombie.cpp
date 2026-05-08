@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:22:32 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 01:57:53 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/08 11:58:41 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 Zombie::Zombie() : _name("Anonymous"){
 }
 
-Zombie::Zombie(const std::string &new_name) : _name(new_name){
+Zombie::Zombie(const std::string new_name){
+	_name = new_name.empty() ? "Anonymous" : new_name;
 }
 
 Zombie::~Zombie(){

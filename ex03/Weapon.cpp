@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 23:11:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 11:56:02 by kkido            ###   ########.fr       */
+/*   Created: 2026/05/08 11:14:08 by kkido             #+#    #+#             */
+/*   Updated: 2026/05/08 15:48:13 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-#include <string>
-#include <iostream>
+#include "Weapon.hpp"
 
-class Zombie
-{
-	public:
-		void announce();
-		Zombie(const std::string new_name);
-		~Zombie();
-	private:
-		std::string _name;
-};
+Weapon::Weapon(std::string str): _type(str.empty()? "none" : str){
+}
 
-Zombie *new_Zombie(const std::string name);
-void randomChump(const std::string name);
+const std::string& Weapon::getType(){
+	return _type;
+}
 
-#endif
+void Weapon::setType(const std::string str){
+	if(str.empty())
+		_type = "none";
+	else
+		_type = str;
+}

@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:11:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 02:00:55 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/08 11:57:02 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Zombie
 {
 	public:
 		Zombie();
-		Zombie(const std::string &new_name);
+		Zombie(const std::string new_name);
 		~Zombie();
 		void announce();
 		void set_name(const std::string name);
