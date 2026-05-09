@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 22:19:18 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/09 21:33:51 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,35 @@ int main(int argc, char *argv[]){
 		std::cout << "Usage: ./ex04 <filename> <s1> <s2>" << std::endl;
 		return 0;
 	}
+
 	std::string line;
 	std::string filename = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
-	int pos = 0;
-	std::ifstream ifs(filename);
+
+	size_t pos;
+
+	std::ifstream ifs(filename.c_str());
 	if(!ifs){
-		std::cout << "Error: Failed to open file." << std::endl;
+		std::cerr << "Error: Failed to open file." << std::endl;
 		return 1;
 	}
-	std::ofstream ofs(filename + ".replace");
+
+	std::ofstream ofs((filename + ".replace").c_str());
 	if(!ofs){
-		std::cout << "Error: Failed to open replace file." << std::endl;
+		std::cerr << "Error: Failed to open replace file." << std::endl;
 		return 1;
 	}
+
 	while(std::getline(ifs,line)){
-		while(((pos = line.find(s1,pos)) != (int)std::string::npos)&&!s1.empty()){
+		pos = 0;
+		while(((pos = line.find(s1,pos)) != std::string::npos)&&!s1.empty()){
 			line.erase(pos,s1.length());
 			line.insert(pos,s2);
+			pos = pos + s2.length();
 		}
 		ofs << line;
-		if(ifs.eof())
-		ofs << std::endl;
+		if(!ifs.eof())
+			ofs << std::endl;
 	}
 }
