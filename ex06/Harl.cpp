@@ -6,25 +6,36 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/10 17:38:38 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/10 18:54:36 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/10 18:52:10 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
 
-typedef void(Harl::*HARL_FUNC)(void);
 
 void Harl::complain(std::string level){
+	int i = 0;
+
 	std::string levels[] = {"DEBUG","INFO","WARNING","ERROR"};
-	HARL_FUNC harl_func[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	for(int i=0; i<4 ;i++){
-		if(levels[i] == level){
-			(this->*harl_func[i])();
-			return;
-		}
+	while(i<4){
+		if(levels[i] == level)
+			break;
+		i++;
 	}
-	std::cout << "Error: level not found." << std::endl;
+	switch(i){
+		case 0:
+			this->debug();
+		case 1:
+			this->info();
+		case 2:
+			this->warning();
+		case 3:
+			this->error();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+	}
 }
 
 void Harl::debug(void){

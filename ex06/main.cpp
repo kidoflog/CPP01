@@ -6,23 +6,18 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/10 18:55:01 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/10 18:56:21 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
 
-int main(){
+int main(int argc, char *argv[]){
 	Harl harl;
-	std::cout << "--- debug level test ---" << std::endl;
-	harl.complain("DEBUG");
-	std::cout << "--- info level test ---" << std::endl;
-	harl.complain("INFO");
-	std::cout << "--- warning level test ---" << std::endl;
-	harl.complain("WARNING");
-	std::cout << "--- error level test ---" << std::endl;
-	harl.complain("ERROR");
-	std::cout << "--- not exist level test ---" << std::endl;
-	harl.complain("TEST");
+	if(argc != 2 ){
+		std::cout << "Usage: ./harlFilter <level>" << std::endl;
+		return 0;
+	}
+	harl.complain((std::string)argv[1]);
 }
