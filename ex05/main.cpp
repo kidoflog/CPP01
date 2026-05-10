@@ -6,49 +6,23 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/09 21:33:51 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/10 18:13:17 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
 #include <iostream>
-#include <fstream>
-#include <string>
 
-int main(int argc, char *argv[]){
-
-	if(argc!=4){
-		std::cout << "Usage: ./ex04 <filename> <s1> <s2>" << std::endl;
-		return 0;
-	}
-
-	std::string line;
-	std::string filename = argv[1];
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
-
-	size_t pos;
-
-	std::ifstream ifs(filename.c_str());
-	if(!ifs){
-		std::cerr << "Error: Failed to open file." << std::endl;
-		return 1;
-	}
-
-	std::ofstream ofs((filename + ".replace").c_str());
-	if(!ofs){
-		std::cerr << "Error: Failed to open replace file." << std::endl;
-		return 1;
-	}
-
-	while(std::getline(ifs,line)){
-		pos = 0;
-		while(((pos = line.find(s1,pos)) != std::string::npos)&&!s1.empty()){
-			line.erase(pos,s1.length());
-			line.insert(pos,s2);
-			pos = pos + s2.length();
-		}
-		ofs << line;
-		if(!ifs.eof())
-			ofs << std::endl;
-	}
+int main(){
+	Harl harl;
+	std::cout << "--- debug command test ---" << std::endl;
+	harl.complain("DEBUG");
+	std::cout << "--- info command test ---" << std::endl;
+	harl.complain("INFO");
+	std::cout << "--- warning command test ---" << std::endl;
+	harl.complain("WARNING");
+	std::cout << "--- error command test ---" << std::endl;
+	harl.complain("ERROR");
+	std::cout << "--- not exist command test ---" << std::endl;
+	harl.complain("TEST");
 }
