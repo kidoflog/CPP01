@@ -6,13 +6,15 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 18:55:36 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/09 21:33:51 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/20 16:40:56 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <new>
 
 int main(int argc, char *argv[]){
 
@@ -21,7 +23,6 @@ int main(int argc, char *argv[]){
 		return 0;
 	}
 
-	std::string line;
 	std::string filename = argv[1];
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
@@ -39,16 +40,23 @@ int main(int argc, char *argv[]){
 		std::cerr << "Error: Failed to open replace file." << std::endl;
 		return 1;
 	}
-
-	while(std::getline(ifs,line)){
-		pos = 0;
-		while(((pos = line.find(s1,pos)) != std::string::npos)&&!s1.empty()){
-			line.erase(pos,s1.length());
-			line.insert(pos,s2);
-			pos = pos + s2.length();
-		}
-		ofs << line;
-		if(!ifs.eof())
-			ofs << std::endl;
+	std::ostringstream buffer;
+	try{
+		buffer << ifs.rdbuf();
+	}catch(std::bad_alloc &e){
+		std::cerr << "Error: Memory allocate failed." << std::endl;
+		return 1;
 	}
+	std::string content = buffer.str();
+	pos = 0;
+	if(s1.empty()){
+		ofs << content;
+		return 0;
+	}
+	while((pos = content.find(s1,pos)) != std::string::npos){
+		content.erase(pos,s1.length());
+		content.insert(pos,s2);
+		pos = pos + s2.length();
+	}
+	ofs << content;
 }

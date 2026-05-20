@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:11:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 11:56:02 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/20 15:29:26 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Zombie
 		std::string _name;
 };
 
-Zombie *new_Zombie(const std::string name);
+Zombie *newZombie(const std::string name);
 void randomChump(const std::string name);
 
 #endif

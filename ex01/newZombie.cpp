@@ -6,17 +6,17 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 23:29:51 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 01:57:44 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/20 15:29:26 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *new_Zombie(const std::string name){
-	Zombie *new_zombie;
+Zombie *newZombie(const std::string name){
+	Zombie *newZombie;
 	if(name.empty())
-		new_zombie = new Zombie("Anonymous");
+		newZombie = new Zombie("Anonymous");
 	else
-		new_zombie = new Zombie(name);
-	return new_zombie;
+		newZombie = new Zombie(name);
+	return newZombie;
 }

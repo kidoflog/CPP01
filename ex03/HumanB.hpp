@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 11:14:03 by kkido             #+#    #+#             */
-/*   Updated: 2026/05/08 15:50:34 by kkido            ###   ########.fr       */
+/*   Updated: 2026/05/20 16:19:58 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class HumanB{
 	public:
-		HumanB(const std::string name);
+		HumanB(const std::string &name);
 		void setWeapon(Weapon &new_weapon);
 		void attack();
 	private:
